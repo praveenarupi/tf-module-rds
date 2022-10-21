@@ -10,7 +10,7 @@ resource "aws_rds_cluster" "main" {
   skip_final_snapshot    = true
 }
 
-resource "aws_docdb_cluster_instance" "cluster_instances" {
+resource "aws_rds_cluster_instance" "cluster_instances" {
   count              = var.instance_count
   identifier         = "${var.env}-rds-${count.index}"
   cluster_identifier = aws_rds_cluster.main.id
